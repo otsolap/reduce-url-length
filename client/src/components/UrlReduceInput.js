@@ -35,10 +35,12 @@ const UrlShortenerInput = () => {
 
     return (
         <div>
-            <Form margin='normal' className="reduceUrl" action="/reduceurls" >
-                <Form.Label color='primary' htmlFor="fullUrl" name="fullUrl">Reduce Url  </Form.Label>
-                <Form.Control color='primary' onChange={changeValueHandler} placeholder="Cast your spell" type="url" name="fullUrl" id="fullUrl" required />
-                <Button onClick={addSubmitHandler} type="submit">Reduce Url</Button>
+            <Form>
+                <Form.Group margin='normal' className="reduceUrl" action="/reduceurls" >
+                    <Form.Label color='primary' htmlFor="fullUrl" name="fullUrl">Place the Url you wish to reduce here</Form.Label>
+                    <Form.Control color='primary' onChange={changeValueHandler} placeholder="Cast Spell Reduc" type="url" name="fullUrl" id="fullUrl" required />
+                    <Button variant="success" onClick={addSubmitHandler} type="submit">Cast Spell</Button>
+                </Form.Group>.
             </Form>
         </div>
     )
