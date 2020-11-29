@@ -1,0 +1,15 @@
+body {
+	margin: 0;
+	background-color: #e13200;
+	color: #fff;
+	text-align: center;
+	font-family: 'Open sans', sans-serif;
+}
+
+.footer a {
+	color: #e39b41;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

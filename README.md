@@ -1,11 +1,9 @@
-# Url shortener for Druid.fi
+# Url shortener
 
 ## Key-learnings:
 
-### MERN-app by myself under tight schedule.
+### MERN-app as monorepository on Heroku
 
-### Material-UI
-
-### Upload to Heroku as a single repository.
+### Bootstrap-UI
 
 
