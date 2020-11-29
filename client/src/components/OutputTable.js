@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import callBackUri from '../constants/constants';
+// import { callBackUri } from '../constants';
+import { callBackUriDev } from '../constants';
 
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Divider from '@material-ui/core/Divider';
+import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 
 const UrlShortenerOutput = () => {
@@ -16,7 +10,7 @@ const UrlShortenerOutput = () => {
 
     useEffect(() => {
         axios
-            .get(callBackUri)
+            .get(callBackUriDev)
             .then((response) => {
                 const urls = response.data
                 setReducedUrl(urls);
@@ -27,29 +21,24 @@ const UrlShortenerOutput = () => {
         let webUrl = new URL(`${window.location.origin}`)
 
         return (
-            <TableRow label={urls._id} value={urls.value}>
-                <TableCell align="left"><a href={urls.full}>{urls.full}</a></TableCell>
-                <TableCell align="right"><a href={urls.full}>{webUrl.host}/{urls.reduced}</a></TableCell>
-                <Divider />
-            </TableRow>
+            <tr label={urls._id} value={urls.value}>
+                <td><a href={urls.full}>{webUrl.host}/{urls.reduced}</a></td>
+            </tr>
         )
     })
 
     return (
         <div>
-            <TableContainer component={Paper}>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Full Url</TableCell>
-                            <TableCell>Reduced Url</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {reducedUrlsList}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            <Table aria-label="simple table">
+                <th>
+                    <tr>
+                        <td>Reduced Url</td>
+                    </tr>
+                </th>
+                <tbody>
+                    {reducedUrlsList}
+                </tbody>
+            </Table>
         </div>
     )
 }
